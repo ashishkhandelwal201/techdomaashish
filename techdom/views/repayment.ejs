@@ -1,0 +1,188 @@
+
+
+
+<table border="2">  
+    <tr>  
+        <th>ID</th>  
+        <th>Amount</th>  
+        <th>date</th>  
+        <th>repayment Status</th>  
+        <th>pay</th>  
+    </tr>  
+    <% for(let row of repaymentDetails){ %>  
+        <tr>  
+            <td><%- row.id %></td>  
+            
+            <td><%- row.amount_due %></td>  
+            <td><%- row.repayment_date %></td>  
+            <td><%- row.repayment_status %></td>  
+
+            <td>
+                <% if(row.repayment_status == "pending"){ %>
+
+                <a id="loadButton" class="point-class" href="/paid-repayments/<%- loanid %>/<%- row.id %>">Pay this installment</a>
+                <% }else{ %>
+                    <span>&#10003;  </span>
+                    <% } %>
+            </td>
+        </tr>  
+    <% } %>  
+</table>
+<a href="/logout">logout</a>
+
+
+
+
+
+
+
+
+
+
+
+<span id="owner" >
+ <p>Created By - <b>Aashish Khandelwal</b></p>
+ <p>Contact No. - 9691536456 , 9406600788</p>
+ <p>Email - <b>ashish.khandelwal201@gmail.com</b></p>
+ <p>Applied for JS stack developer as 2yr+ experience</p>   
+ <hr>
+</span>
+<div class="loader" id="loader"></div>  
+<span id="loader-text">processing UPI</span>
+
+<style>
+     #owner{
+        position: absolute;
+        top: 10px;
+        right: 42%;
+     }
+        
+        .loader {  
+            border: 8px solid #f3f3f3; 
+            border-top: 8px solid #3498db; 
+            border-radius: 50%;  
+            width: 50px;  
+            height: 50px;  
+            animation: spin 1s linear infinite;  
+            display: none; 
+            position: absolute; 
+            top: 50%; 
+            left: 50%;  
+            transform: translate(-50%, -50%); 
+        }  
+
+        @keyframes spin {  
+            0% { transform: rotate(0deg); }  
+            100% { transform: rotate(360deg); }  
+        }  
+#loader-text{
+    display: none;
+     
+            
+            border-radius: 50%;  
+            width: 50px;  
+            height: 50px;  
+            
+position: absolute; 
+            top: 50%; 
+            left: 50%;  
+            transform: translate(-50%, -50%); 
+}
+        .button-container {  
+            text-align: center;  
+            margin-top: 50px;  
+        }  
+    
+        
+#logout{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.margin-top{
+    margin-top: 80px;
+}
+.margin-top-10{
+    margin-top: 20px;
+
+}
+body{
+    background-color: #bcee93;
+}        table {
+      width: 80%;
+      position: absolute;
+      top: 28%;
+      right: 10%;
+    }
+    
+    
+    th {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    th , td {
+      border-bottom: 2px solid;
+    }
+
+    .a{
+  background-color: #c52727; 
+  border: none;
+  color: white;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+    .button1 {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+.b{
+  background-color: #cdda23; 
+  border: none;
+  color: white;
+  
+  text-align: center;
+}
+
+.r{
+  background-color: #b65a5a; 
+  border: none;
+  color: white;
+  
+  text-align: center;
+  
+}
+</style>
+
+<script>
+ document.getElementById('loadButton').addEventListener('click', function(e) {  
+    e.preventDefault()
+        const loader = document.getElementById('loader');  
+        const loader_text = document.getElementById('loader-text');  
+        
+        loader.style.display = 'block';  
+        loader_text.style.display = 'block';  
+        
+        
+        console.log()
+        setTimeout(function() {  
+            loader.style.display = 'none'; 
+            loader_text.style.display = 'none'; 
+            window.location.href = e.target.href;
+            alert('Payment done'); 
+
+        }, 2000); 
+    });
+</script>

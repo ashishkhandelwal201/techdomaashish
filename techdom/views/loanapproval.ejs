@@ -1,0 +1,119 @@
+<center>
+    <h1>Hello Admin TECHDOM</h1>
+
+    <h2>Below are the all loan requests which are requested by registered customers</h2>
+    <table border="2" cellspacing = "6" cellpadding="6">  
+    <tr>  
+        <th>ID</th>  
+        <th>User's Name</th>  
+        <th>Amount Required</th>  
+        <th>Created At</th>  
+
+        <th>current Status</th>  
+        
+        <th>action</th>  
+    </tr>  
+    <% for(let row of allLoans){ %>  
+        <tr>  
+            <td><%- row.id %></td>  
+            <td><%- row.name %></td>  
+            <td><%- row.amount_required %></td>  
+            <td><%- row.created_at %></td>  
+            <td><%- row.status %></td>  
+            <td>  
+                <% if(row.status != 'approve'){ %>  
+                    <a title="click to approve" href="/approve-loan/<%= row.id %>"> approve </a>  
+                <% } else { %>  
+                    &#10003;  
+                <% } %>  
+            </td>  
+        </tr>  
+    <% } %>  
+</table>
+</center>
+<a id="logout" href="/logout">logout</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+#logout{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+body{
+    background-color: #a5e2eb;
+}
+        table {
+      width: 80%;
+      position: absolute;
+      top: 16%;
+      right: 10%;
+    }
+    
+    /* body {background-color: rgb(136, 76, 209);} */
+    th {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    th , td {
+      border-bottom: 2px solid;
+    }
+
+    .a{
+  background-color: #c52727; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+    .button1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+.b{
+  background-color: #cdda23; /* Green */
+  border: none;
+  color: white;
+  
+  text-align: center;
+}
+
+.r{
+  background-color: #b65a5a; /* Green */
+  border: none;
+  color: white;
+  
+  text-align: center;
+  
+}
+    
+
+</style>
