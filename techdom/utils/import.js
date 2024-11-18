@@ -25,4 +25,4 @@ import repaymentModel from '../model/repayments.model.js'
 
 
 
-export {express , bcrypt , userController , userModel , loanController , loanModel , util , mysql , db , jwt , generateAccessToken , generateRefreshToken , verifyAuth , adminModel , cookieParser , adminController , repaymentModel , repaymentController }
+export {express , env , bcrypt , userController , userModel , loanController , loanModel , util , mysql , db , jwt , generateAccessToken , generateRefreshToken , verifyAuth , adminModel , cookieParser , adminController , repaymentModel , repaymentController }
