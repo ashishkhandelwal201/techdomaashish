@@ -1,5 +1,5 @@
-import { mysql , util } from '../utils/import.js'
-
+import { mysql, env , util } from '../utils/import.js'
+env.config()
 
 // Implement the singleton here
 class DBInstance{
