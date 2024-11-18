@@ -1,0 +1,54 @@
+
+<%- include("./head.ejs") %>
+    <section id="featured-cars" class="featured-cars">
+        <div class="container">
+            <div class="section-header">
+              <h1>Hello Admin TECHDOM</h1>
+            </div>
+            <div class="featured-cars-content">
+
+                <table id="example" class="table table-striped">
+                    <thead>
+                      <tr>  
+                        <th>ID</th>  
+                        <th>User's Name</th>  
+                        <th>Amount Required</th>  
+                        <th>Created At</th>  
+                        <th>current Status</th>           
+                        <th>action</th>  
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <% for(let row of allLoans){ %>  
+                        <tr>  
+                            <td><%- row.id %></td>  
+                            <td><%- row.name %></td>  
+                            <td><%- row.amount_required %></td>  
+                            <td><%- row.created_at %></td>  
+                            <td><%- row.status %></td>  
+                            <td>  
+                                <% if(row.status != 'approve'){ %>  
+                                    <a title="click to approve" href="/approve-loan/<%= row.id %>"> approve </a>  
+                                <% } else { %>  
+                                    &#10003;  
+                                <% } %>  
+                            </td>  
+                        </tr>  
+                    <% } %> 
+                    </tbody>
+                </table>
+    </section>
+    <%- include("./footer.ejs") %>
+<script>
+  $(document).ready(function() {
+    $('#example').DataTable({
+        "paging": false, 
+    "info": false, 
+    "searching": true 
+    });
+});
+</script>
+
+<style>
+
+   </style> 

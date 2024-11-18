@@ -1,0 +1,42 @@
+Loan Management System (JS Stack & MySQL)
+Created By: Aashish Khandelwal
+Contact No.: 9691536456, 9406600788
+Email: ashish.khandelwal201@gmail.com
+To setup this mini loan app in local follow the steps mentioned below - 
+
+
+1) Take a clone of the code from my github url with command - git clone https://github.com/ashishkhandelwal201/techdomaashish.git
+2) Install the required packages with the help of package.json with command - npm install
+3) Create a blank database in local mysql with name techdom.
+4) Download the exported .sql file from my mail and run command - mysql -u root -p techdom < path/to/techdom.sql
+5) Make the changes in config > database.js according to your local mysql username and password(in my case it was root root).
+6) Run the project with command - node app.js
+7) Access it on http://localhost:4004 port.
+
+To access the user route -
+username - user
+password - user
+
+To access the admin route -
+username - admin
+password - admin
+
+Brief description of the flow of project assignment
+1) User login first and request for the desired amount of loan.
+- An API "apply-for-loan/:user_id" got hitted which adds the desired amount with respect to that user in DB with status pending.
+- This entry will be visible to that user only below the requested field with status pending
+
+2) Admin login where he can able to see all requested loans in the table and with requested amount and username.
+- Admin can make them approve by clicking on approve with respect to respect user and amount.
+- An API "approve-loan/:loan_id" got hitted which makes the loan status as approve in the DB.
+- At the same time it splits the amount in 3 equal installments and add the splited amount in repayments table.
+
+3) Now whenerver the same user logins again , the "Pay this loan" option automatically gets appear when it is approve from the admin side.
+- When user clicks on it all that 3 splited amounts displayed in tabluar form and their is a option for "pay this installment"
+- When user clicks on it an API "paid-repayments/:loan_id/:repayment_id" gets called which makes the repamnet status as paid.
+- On the user side their is loader which is showing UPI payment is in progress for 2 seconds and then acknowledged user about the payment as been done.
+
+
+If you find any diffculty in regards with seeting up the project in local, Please let me know
+Call - 9691536456
+Whats App - 9406600788 

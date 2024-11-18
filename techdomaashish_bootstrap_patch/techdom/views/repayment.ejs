@@ -1,0 +1,86 @@
+
+
+<table border="2">  
+  
+</table>
+<a href="/logout">logout</a>
+
+
+
+<span id="owner" >
+ <p>Created By - <b>Aashish Khandelwal</b></p>
+ <p>Contact No. - 9691536456 , 9406600788</p>
+ <p>Email - <b>ashish.khandelwal201@gmail.com</b></p>
+ <hr>
+</span>
+<div class="loader" id="loader"></div>  
+<span id="loader-text">processing UPI</span>
+<%- include("./head.ejs") %>
+<section id="featured-cars" class="featured-cars">
+    <div class="container">
+        <div class="section-header">
+          <!-- <h1>Hello Admin TECHDOM</h1> -->
+        </div>
+        <div class="featured-cars-content">
+
+            <table id="example" class="table table-striped">
+                <tr>  
+                    <th>ID</th>  
+                        <th>Amount</th>  
+                        <th>date</th>  
+                        <th>repayment Status</th>  
+                        <th>pay</th>  
+                    </tr>  
+                    <% for(let row of repaymentDetails){ %>  
+                        <tr>  
+                            <td><%- row.id %></td>  
+                            
+                            <td><%- row.amount_due %></td>  
+                            <td><%- row.repayment_date %></td>  
+                            <td><%- row.repayment_status %></td>  
+                
+                            <td>
+                                <% if(row.repayment_status == "pending"){ %>
+                
+                                <a id="loadButton" class="point-class" href="/paid-repayments/<%- loanid %>/<%- row.id %>">Pay this installment</a>
+                                <% }else{ %>
+                                    <span>&#10003;  </span>
+                                    <% } %>
+                            </td>
+                        </tr>  
+                    <% } %>
+            </table>
+</section>
+<%- include("./footer.ejs") %>
+<script>
+$(document).ready(function() {
+$('#example').DataTable({
+    "paging": false, 
+"info": false, 
+"searching": true 
+});
+});
+document.getElementById('loadButton').addEventListener('click', function(e) {  
+    e.preventDefault()
+        const loader = document.getElementById('loader');  
+        const loader_text = document.getElementById('loader-text');  
+        loader.style.display = 'block';  
+        loader_text.style.display = 'block';         
+        setTimeout(function() {  
+            loader.style.display = 'none'; 
+            loader_text.style.display = 'none'; 
+            window.location.href = e.target.href;
+            alert('Payment done'); 
+        }, 2000); 
+    });
+    
+</script>
+<style>
+    #owner{position: absolute;bottom: 10px;right: 42%;
+    }
+.loader {  border: 8px solid #f3f3f3; border-top: 8px solid #3498db; border-radius: 50%;  width: 50px;  height: 50px;  animation: spin 1s linear infinite;  display: none; position: absolute; top: 60%; left: 50%;  transform: translate(-50%, -50%);       }  
+       @keyframes spin {  0% { transform: rotate(0deg); }  100% { transform: rotate(360deg); }  }  
+#loader-text{
+   display: none;border-radius: 50%;width: 50px; height: 50px;position: absolute; top: 50%; left: 50%;  transform: translate(-50%, -50%); 
+}
+</style>

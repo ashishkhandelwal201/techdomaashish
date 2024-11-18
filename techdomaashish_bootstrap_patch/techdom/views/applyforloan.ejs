@@ -1,0 +1,78 @@
+<%- include("./head.ejs") %>
+    <section id="featured-cars" class="featured-cars">
+        <div class="container">
+            <div class="section-header">
+              <h2>Hello User :  <%- user_name %></h2>
+            </div>
+            <div class="featured-cars-content">
+
+              
+<form action="/apply-for-loan/<%- user_id %>" method="post">
+  <div class="container"><div class="row">
+    <div class="col-md-2"></div>
+      <div class="col-md-4">
+      <label for="">Amount required for Loan</label>
+    </div>
+    <div class="col-md-2">
+      <input type="number"  class="form-control primary-border" name="amount_required" id="">
+
+    </div>
+    <div class="col-md-2">
+
+      <button  class="button1 btn gradient-color btn-style margin-top-10"> Apply </button>
+    </div>
+  </div></div>
+
+
+
+</form>
+
+
+
+
+
+<br>
+<h4>Your applied loan history </h4>
+<br>
+</div>
+
+                <table id="example" class="table table-striped">
+                  <tr>  
+                    <th>ID</th>  
+                    <th>Amount Required</th>  
+                    <th>Created At</th>  
+                    <th>current Status</th>  
+                    <th>pay</th>  
+                </tr>  
+                <% for(let row of allloans){ %>  
+                    <tr>  
+                        <td><%- row.id %></td>  
+                        
+                        <td><%- row.amount_required %></td>  
+                        <td><%- row.created_at %></td>  
+                        <td><%- row.status %></td>  
+                        <td>
+                            <% if(row.status == "approve"){ %>
+                            <a href="/repayments/<%- row.id %>">Pay this loan</a>
+                            <% }else{ %>
+                                <span>loan is not approved yet</span>
+                                <% } %>
+                        </td>
+                        
+                    </tr>  
+                <% } %>
+            
+            
+                </table>
+              
+    </section>
+    <%- include("./footer.ejs") %>
+<script>
+  $(document).ready(function() {
+    $('#example').DataTable({
+        "paging": false, 
+    "info": false, 
+    "searching": true 
+    });
+});
+</script>

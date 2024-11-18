@@ -1,0 +1,114 @@
+<%- include("./head.ejs")%>
+<section id=""  class="clients-say">
+    <div class="container">
+        <div class="section-header">
+            <h2>Register your company</h2>
+        </div>
+
+        
+        <div class="container mt-20">
+            
+            <form action="register" method="post">
+                <h4><%- output %></h4>
+                
+                <div class="row form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <label  for="">Company's name</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" name="companyname" type="text">
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+
+                <div class="row form-group">   
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <label for="">User name<label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" name="username" type="text">
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="row form-group">   
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <label for="">Password<label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" name="password" type="password">
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="row form-group">   
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <label for="">Email<label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" name="email" type="email">
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="row form-group">   
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <label for="">Phone number<label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" name="mobile" type="number">
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="row form-group">   
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <label for="">Address<label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" name="address" type="text">
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+
+
+                <div class="row form-group">   
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <label for="">City</label>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" name="city" id="City">
+                            <option value="indore">Indore</option>
+                            <option value="ujjain">Ujjain</option>
+                            <option value="dewas">Dewas</option>
+                            <option value="bhopal">Bhopal</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+ 
+                <div class="col-sm-5"></div>
+                <div class="col-sm-2">
+                    <button class="btn btn-style">Register</button>
+                </div>
+                <div class="col-sm-5"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<%- include("./footer.ejs")%>
